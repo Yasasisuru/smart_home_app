@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 class homePage extends StatefulWidget {
@@ -15,9 +17,8 @@ class _homePageState extends State<homePage> {
       appBar: AppBar(
         shadowColor: Colors.grey,
         actions: [IconButton(onPressed: (){} ,
-            icon:Icon(Icons.account_circle_outlined))
+            icon:Icon(Icons.person,size: 25,))
         ],// menu icon
-
         title:Text("Smart Home",
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -26,6 +27,46 @@ class _homePageState extends State<homePage> {
           ) ,   //title & Title style
         ),
       ),
-    );
+
+
+      //Application body part 
+      body: 
+      Column(
+        children: [
+          Center(
+            child: Container(
+              padding: EdgeInsets.only(top: 70,bottom: 70),
+              child: Column(
+                children: [
+                Text("Welcome !" ,style: TextStyle(
+                    color: Colors.black38,
+                  fontStyle: FontStyle.italic,
+                ),),
+                  Text("Smart Home",style: TextStyle(
+                  color: Colors.black,
+                    fontSize: 37,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Divider(
+            color: Colors.black38,
+            thickness: 2,
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 50),// Control section
+            child: Row(
+            children: [
+              
+            ],
+            ),
+
+          )
+        ],
+      ),
+      );
   }
 }
