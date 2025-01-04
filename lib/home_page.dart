@@ -56,15 +56,19 @@ class _homePageState extends State<homePage> {
             color: Colors.black38,
             thickness: 2,
           ),
-          Container(
-            padding: EdgeInsets.only(top: 50),// Control section
-            child: Row(
-            children: [
-              
-            ],
-            ),
 
-          )
+          Container(
+            padding: EdgeInsets.all(20),
+            child: Text("Smart Dvices ",style: TextStyle(
+              color: Colors.black54,
+              fontWeight: FontWeight.w700,
+              fontSize: 20,
+
+            ),),
+          ),
+
+
+
         ],
       ),
       );
