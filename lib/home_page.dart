@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'devices.dart';
+
 class homePage extends StatefulWidget {
   const homePage({super.key});
 
@@ -10,6 +12,17 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
+
+  List smartDevices=[
+    ["Smart Light","lib/icons/light-bulb.gif",true],
+    ["Smart AC","lib/icons/air-conditioner.gif",true],
+    ["Smart Fan","lib/icons/fan.gif",true],
+    ["Smart TV","lib/icons/applications.gif",true],
+
+
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,8 +80,22 @@ class _homePageState extends State<homePage> {
             ),),
           ),
 
-
-
+    //Smart devices area
+Expanded(child:
+GridView.builder(
+   itemCount: smartDevices.length,
+    padding:EdgeInsets.all(20),
+    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 2,
+      childAspectRatio:1/1.3,
+    ),
+    itemBuilder: (context,index){
+  return smartDeviceBox(
+    deviceName: smartDevices[index][0],
+    deviceIcon: smartDevices[index][1],
+    deviceStatus: smartDevices[index][2],
+  );
+    }))
         ],
       ),
       );
