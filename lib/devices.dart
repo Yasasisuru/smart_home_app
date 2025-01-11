@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,11 +8,13 @@ class smartDeviceBox extends StatelessWidget {
   final String deviceIcon;
   final bool deviceStatus;
 
+  void Function(bool)? onChanged;
 
-  const smartDeviceBox({super.key,
+   smartDeviceBox({super.key,
     required this.deviceIcon,
     required this.deviceName,
-    required this.deviceStatus});
+    required this.deviceStatus,
+     required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +34,7 @@ class smartDeviceBox extends StatelessWidget {
                 Expanded(
                   child:
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.only(left: 20),
                       child: Text(deviceName,style:
                         TextStyle(
                           fontWeight: FontWeight.bold,
@@ -39,9 +43,13 @@ class smartDeviceBox extends StatelessWidget {
                       ),
                     ),
                 ),
-                CupertinoSwitch(value: false, onChanged: (value){})
+                Transform.rotate(
+                    angle: pi/2,
+                    child:
+                    CupertinoSwitch(value: deviceStatus, onChanged:onChanged),
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),

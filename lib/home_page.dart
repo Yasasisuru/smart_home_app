@@ -15,13 +15,18 @@ class _homePageState extends State<homePage> {
 
   List smartDevices=[
     ["Smart Light","lib/icons/light-bulb.gif",true],
-    ["Smart AC","lib/icons/air-conditioner.gif",true],
+    ["Smart AC","lib/icons/air-conditioner.gif",false],
     ["Smart Fan","lib/icons/fan.gif",true],
     ["Smart TV","lib/icons/applications.gif",true],
 
 
   ];
 
+  void PowerSwitchChange(bool value,int index){
+    setState(() {
+      smartDevices[index][2]=value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +99,7 @@ GridView.builder(
     deviceName: smartDevices[index][0],
     deviceIcon: smartDevices[index][1],
     deviceStatus: smartDevices[index][2],
+    onChanged: (value)=>PowerSwitchChange(value,index),
   );
     }))
         ],
